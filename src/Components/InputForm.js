@@ -1,7 +1,8 @@
 import React from "react";
-import "./InputForm.css";
+import styles from "./InputForm.module.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import Input from "./Input";
 
 const InputForm = () => {
   const userSchema = Yup.object().shape({
@@ -64,150 +65,105 @@ const InputForm = () => {
       }}
     >
       {(formik) => (
-        <div className="card">
-          <div className="form">
-            <input
-              placeholder="Enterprise ID"
-              name="eid"
-              type="number"
-              onChange={formik.handleChange("eid")}
-              onBlur={formik.handleBlur("eid")}
-              value={formik.values.eid}
-              required
-              disabled={formik.isSubmitting}
-              style={{
-                borderColor:
-                  formik.errors.eid && formik.touched.eid ? "red" : "black",
-                border: "1px",
-                borderStyle: "solid",
-                borderRadius: "5px",
-                padding: "10px",
-                outline: "none",
-              }}
-            />
-            <small className="validation">
-              {formik.errors.eid && formik.touched.eid
-                ? formik.errors.eid
-                : null}
-            </small>
-          </div>
+        <div className={styles.card}>
+          <Input
+            placeholder="Enterprise ID"
+            name="eid"
+            type="number"
+            onChange={formik.handleChange("eid")}
+            onBlur={formik.handleBlur("eid")}
+            value={formik.values.eid}
+            required
+            disabled={formik.isSubmitting}
+            style={formik.errors.eid && formik.touched.eid ? "red" : "black"}
+            helperText={
+              formik.errors.eid && formik.touched.eid && formik.errors.eid
+            }
+          />
 
-          <div className="form">
-            <input
-              placeholder="First Name"
-              name="firstname"
-              type="text"
-              onChange={formik.handleChange("firstName")}
-              value={formik.values.firstName}
-              onBlur={formik.handleBlur("firstName")}
-              required
-              disabled={formik.isSubmitting}
-              pattern={"[a-zA-Z]"}
-              style={{
-                borderColor:
-                  formik.errors.firstName && formik.touched.firstName
-                    ? "red"
-                    : "black",
-                border: "1px",
-                borderStyle: "solid",
-                borderRadius: "5px",
-                padding: "10px",
-                outline: "none",
-              }}
-            />
-            <small className="validation">
-              {formik.errors.firstName && formik.touched.firstName
-                ? formik.errors.firstName
-                : null}
-            </small>
-          </div>
-          <div className="form">
-            <input
-              placeholder="Last Name"
-              name="lastname"
-              onChange={formik.handleChange("lastName")}
-              value={formik.values.lastName}
-              onBlur={formik.handleBlur("lastName")}
-              type="text"
-              required
-              disabled={formik.isSubmitting}
-              style={{
-                borderColor:
-                  formik.errors.lastName && formik.touched.lastName
-                    ? "red"
-                    : "black",
-                border: "1px",
-                borderStyle: "solid",
-                borderRadius: "5px",
-                padding: "10px",
-                outline: "none",
-              }}
-            />
-            <small style={{ color: "red" }}>
-              {formik.errors.lastName && formik.touched.lastName
-                ? formik.errors.lastName
-                : null}
-            </small>
-          </div>
-          <div className="form">
-            <input
-              placeholder="Email"
-              name="email"
-              onChange={formik.handleChange("email")}
-              value={formik.values.email}
-              disabled={formik.isSubmitting}
-              onBlur={formik.handleBlur("email")}
-              type="email"
-              required
-              style={{
-                borderColor:
-                  formik.errors.email && formik.touched.email ? "red" : "black",
-                border: "1px",
-                borderStyle: "solid",
-                borderRadius: "5px",
-                padding: "10px",
-                outline: "none",
-              }}
-            />
-            <small className="validation">
-              {formik.errors.email && formik.touched.email
-                ? formik.errors.email
-                : null}
-            </small>
-          </div>
+          <Input
+            placeholder="First Name"
+            name="firstname"
+            type="text"
+            onChange={formik.handleChange("firstName")}
+            value={formik.values.firstName}
+            onBlur={formik.handleBlur("firstName")}
+            required
+            disabled={formik.isSubmitting}
+            pattern={"[a-zA-Z]"}
+            style={
+              formik.errors.firstName && formik.touched.firstName
+                ? "red"
+                : "black"
+            }
+            helperText={
+              formik.errors.firstName &&
+              formik.touched.firstName &&
+              formik.errors.firstName
+            }
+          />
 
-          <div className="form">
-            <input
-              name="birthdate"
-              type="date"
-              onChange={formik.handleChange("birthdate")}
-              value={formik.values.birthdate}
-              disabled={formik.isSubmitting}
-              onBlur={formik.handleBlur("birthdate")}
-              style={{
-                borderColor:
-                  formik.errors.birthdate && formik.touched.birthdate
-                    ? "red"
-                    : "black",
-                border: "1px",
-                borderStyle: "solid",
-                borderRadius: "5px",
-                padding: "10px",
+          <Input
+            placeholder="Last Name"
+            name="lastname"
+            onChange={formik.handleChange("lastName")}
+            value={formik.values.lastName}
+            onBlur={formik.handleBlur("lastName")}
+            type="text"
+            required
+            disabled={formik.isSubmitting}
+            style={
+              formik.errors.lastName && formik.touched.lastName
+                ? "red"
+                : "black"
+            }
+            helperText={
+              formik.errors.lastName &&
+              formik.touched.lastName &&
+              formik.errors.lastName
+            }
+          />
 
-                outline: "none",
-              }}
-              required
-              className="inputText"
-            />
-            <small className="validation">
-              {formik.errors.birthdate && formik.touched.birthdate
-                ? formik.errors.birthdate
-                : null}
-            </small>
-          </div>
+          <Input
+            placeholder="Email"
+            name="email"
+            onChange={formik.handleChange("email")}
+            value={formik.values.email}
+            disabled={formik.isSubmitting}
+            onBlur={formik.handleBlur("email")}
+            type="email"
+            required
+            style={
+              formik.errors.email && formik.touched.email ? "red" : "black"
+            }
+            helperText={
+              formik.errors.email && formik.touched.email && formik.errors.email
+            }
+          />
+
+          <Input
+            name="birthdate"
+            type="date"
+            onChange={formik.handleChange("birthdate")}
+            value={formik.values.birthdate}
+            disabled={formik.isSubmitting}
+            onBlur={formik.handleBlur("birthdate")}
+            style={
+              formik.errors.birthdate && formik.touched.birthdate
+                ? "red"
+                : "black"
+            }
+            required
+            helperText={
+              formik.errors.birthdate &&
+              formik.touched.birthdate &&
+              formik.errors.birthdate
+            }
+          />
+
           <button
             type="submit"
-            className="buttonSave"
+            className={styles.buttonSave}
             onClick={formik.handleSubmit}
             disabled={formik.isSubmitting || !formik.isValid}
           >

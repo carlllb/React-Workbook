@@ -26,3 +26,30 @@
   margin-top: 20px;
   text-align: center;
 }
+
+/* SEARCH BAR */
+.search {
+  border: 1px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 7px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+/* ERROR PAGE */
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.errorHeader {
+  font-size: 60px;
+}
+.errorCaption {
+  font-size: 20px;
+}
+.errorRedirect {
+  font-size: 15px;
+}

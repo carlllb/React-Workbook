@@ -1,16 +1,9 @@
 import React from "react";
-
+import "../App.css";
 const ErrorPage = () => {
   return (
     <section>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          textAlign: "center",
-        }}
-      >
+      <div className="error">
         <div>
           <lord-icon
             src="https://cdn.lordicon.com/hrqwmuhr.json"
@@ -19,11 +12,11 @@ const ErrorPage = () => {
             style={{ width: "250px", height: "250px" }}
           />
         </div>
-        <b style={{ fontSize: "60px" }}>Error 404</b>
-        <caption style={{ fontSize: "20px" }}>Page not found.</caption>
+        <b className="errorHeader">Error 404</b>
+        <caption className="errorCaption">Page not found.</caption>
         <div>
           <a href="/">
-            <p style={{ fontSize: "15px" }}>Fly away🛫.</p>
+            <p className="errorRedirect">Fly back🛫.</p>
           </a>
         </div>
       </div>

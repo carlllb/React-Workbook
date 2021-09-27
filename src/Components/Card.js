@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import styles from "./Card.module.css";
 
 const CardDetails = ({ data }) => {
   const onDeleteHandler = async (id, index) => {
@@ -30,11 +30,11 @@ const CardDetails = ({ data }) => {
   return (
     <>
       {data.map((data) => (
-        <div className="cardDetails" key={data.id}>
+        <div className={styles.cardDetails} key={data.id}>
           <h2>EID:{data.eid}</h2>
-          <h4>
-            Fullname: {data.firstName} {data.lastName}
-          </h4>
+          <p>
+            <b> Fullname:</b> {data.firstName} {data.lastName}
+          </p>
           <p>
             <b>Email:</b> {data.email}
           </p>
@@ -44,7 +44,7 @@ const CardDetails = ({ data }) => {
           <button
             type="button"
             onClick={() => onDeleteHandler(data.id)}
-            className="button"
+            className={styles.button}
           >
             Delete
           </button>

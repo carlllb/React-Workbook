@@ -7,6 +7,9 @@ import "../App.css";
 const Home = () => {
   const [parsedData, setParsedData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchResult, setSearchResult] = useState([]);
+  const [searchName, setSearchName] = useState("");
+
   const getUserDetails = useCallback(async () => {
     try {
       const response = await fetch("http://localhost:3000/posts", {
@@ -23,6 +26,7 @@ const Home = () => {
         );
       }
       setParsedData(() => [...parsedResponse]);
+      setSearchResult(() => [...parsedResponse]);
       setIsLoading(() => false);
     } catch (error) {
       console.error(error.message);
@@ -32,6 +36,17 @@ const Home = () => {
   useEffect(() => {
     getUserDetails();
   }, [getUserDetails]);
+
+  useEffect(() => {
+    const onFilter = parsedData.filter((data) =>
+      data.firstName.toLowerCase().includes(searchName)
+    );
+    setSearchResult(onFilter);
+  }, [parsedData, searchName]);
+
+  const handleSearch = (event) => {
+    setSearchName(event.target.value);
+  };
 
   return (
     <div className="header">
@@ -45,8 +60,19 @@ const Home = () => {
             <h1>Welcome to your workbook 📖</h1>
             <InputForm />
             <h2>User Details ℹ️</h2>
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchName}
+              onChange={handleSearch}
+              className="search"
+            />
             <div className="container">
-              <CardDetails data={parsedData} />
+              {searchResult.length === 0 ? (
+                <p> No result found ❌</p>
+              ) : (
+                <CardDetails data={searchResult} />
+              )}
             </div>
             <footer className="footer">Made with ❤️️ by CBDC.♟️</footer>
           </div>

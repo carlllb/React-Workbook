@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "firstName": "another",
+      "lastName": "try",
+      "email": "testing@email.com",
+      "eid": "54",
+      "birthdate": "2021-09-14",
+      "id": 4
+    },
+    {
+      "firstName": "sample",
+      "lastName": "asdasd",
+      "email": "sample@testinggg.com",
+      "eid": "111",
+      "birthdate": "2021-09-02",
+      "id": 6
+    },
+    {
+      "firstName": "carl",
+      "lastName": "ching",
+      "email": "another@email.com",
+      "eid": 232,
+      "birthdate": "2021-09-02",
+      "id": 12
+    },
+    {
+      "firstName": "Testing",
+      "lastName": "One",
+      "email": "testing.one@test.com",
+      "eid": 1,
+      "birthdate": "2021-09-20",
+      "id": 13
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

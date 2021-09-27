@@ -1,0 +1,39 @@
+.buttonSave {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid #0000;
+  color: white;
+  background: blue;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  grid-column: 1/-1;
+  margin-top: 20px;
+}
+.buttonSave:hover {
+  box-shadow: 5px 5px 5px #999;
+  background-color: darkblue;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: 1px solid #bbb;
+  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: 1fr;
+  gap: 10px;
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.validation {
+  color: red;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styles from "./Input.module.css";
 
 const Input = ({
   value,
@@ -11,20 +12,12 @@ const Input = ({
   ...rest
 }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-      }}
-    >
+    <div className={styles.container}>
       <input
         value={value}
         placeholder={placeholder}
         style={{
-          borderColor: style,
-          border: "1px",
-          borderStyle: "solid",
+          border: `1px solid ${style}`,
           borderRadius: "5px",
           padding: "10px",
           outline: "none",
@@ -33,7 +26,7 @@ const Input = ({
         name={name}
         {...rest}
       />
-      {helperText && <small style={{ color: "red" }}>{helperText}</small>}
+      {helperText && <small className={styles.helper}>{helperText}</small>}
     </div>
   );
 };

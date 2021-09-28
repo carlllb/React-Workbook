@@ -1,18 +1,19 @@
 import React from "react";
+import Input from "./Input";
 import styles from "./InputForm.module.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import Input from "./Input";
 
 const InputForm = () => {
   const userSchema = Yup.object().shape({
     firstName: Yup.string()
       .required("*Please enter firstname")
       .min(2, "*Minimum of 2 characters")
-      .matches("[a-zA-Z]+"),
+      .matches("[^a-zA-Z]+"),
     lastName: Yup.string()
       .required("*Please enter lastname")
-      .min(2, "*Minimum of 2 characters"),
+      .min(2, "*Minimum of 2 characters")
+      .matches("[^a-zA-Z]+"),
     email: Yup.string()
       .required("*Please enter valid email")
       .email("*Invalid email format"),
@@ -86,11 +87,10 @@ const InputForm = () => {
             name="firstname"
             type="text"
             onChange={formik.handleChange("firstName")}
-            value={formik.values.firstName}
+            value={formik.values.firstName.replace(/[^a-zA-Z]+/, "")}
             onBlur={formik.handleBlur("firstName")}
             required
             disabled={formik.isSubmitting}
-            pattern={"[a-zA-Z]"}
             style={
               formik.errors.firstName && formik.touched.firstName
                 ? "red"
@@ -107,7 +107,7 @@ const InputForm = () => {
             placeholder="Last Name"
             name="lastname"
             onChange={formik.handleChange("lastName")}
-            value={formik.values.lastName}
+            value={formik.values.lastName.replace(/[^a-zA-Z]+/, "")}
             onBlur={formik.handleBlur("lastName")}
             type="text"
             required

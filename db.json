@@ -1,22 +1,6 @@
 {
   "posts": [
     {
-      "firstName": "carl",
-      "lastName": "ching",
-      "email": "another@email.com",
-      "eid": 232,
-      "birthdate": "2021-09-02",
-      "id": 12
-    },
-    {
-      "firstName": "Testing",
-      "lastName": "One",
-      "email": "testing.one@test.com",
-      "eid": 1,
-      "birthdate": "2021-09-20",
-      "id": 13
-    },
-    {
       "firstName": "sample",
       "lastName": "test",
       "email": "sample.test@test.com",
@@ -39,6 +23,14 @@
       "eid": 4,
       "birthdate": "2011-11-11",
       "id": 16
+    },
+    {
+      "firstName": "sample",
+      "lastName": "testing",
+      "email": "testing@test.com",
+      "eid": 111,
+      "birthdate": "2021-08-31",
+      "id": 19
     }
   ],
   "comments": [],

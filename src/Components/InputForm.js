@@ -9,11 +9,11 @@ const InputForm = () => {
     firstName: Yup.string()
       .required("*Please enter firstname")
       .min(2, "*Minimum of 2 characters")
-      .matches("[^a-zA-Z]+"),
+      .max(10, "Maximum of 10 characters"),
     lastName: Yup.string()
       .required("*Please enter lastname")
       .min(2, "*Minimum of 2 characters")
-      .matches("[^a-zA-Z]+"),
+      .max(10, "Maximum of 10 characters"),
     email: Yup.string()
       .required("*Please enter valid email")
       .email("*Invalid email format"),
